@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ketienyei — Frontend Developer</title>
+  <meta name="description" content="Portfolio of Your Name — Frontend developer. Modern, responsive, accessible.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="logo" href="index.html">Your<span>Dev</span></a>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section container">
+      <img class="hero-photo" src="images/profile.jpg.webp" alt="Profile photo (replace)" />
+      <div class="hero-content">
+        <h1>Hi — I'm <span class="accent">Cynthia Ketienyei</span></h1>
+        <p class="lead">Frontend developer focused on building accessible, fast and modern web applications.</p>
+        <div class="cta">
+          <a class="btn primary" href="files/cv.pdf" download>📄 Download CV</a>
+          <a class="btn outline" href="contact.html">💼 Hire me</a>
+        </div>
+        <ul class="skills-list">
+          <li>HTML • CSS • JavaScript</li>
+          <li>React • Responsive Design</li>
+          <li>Accessibility • Performance</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section container cards reveal">
+      <h2>What I do</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Responsive UI</h3>
+          <p>Build pixel-perfect, responsive interfaces that work on any device.</p>
+        </article>
+        <article class="card">
+          <h3>Interactive Apps</h3>
+          <p>Interactive user interfaces with clean state and accessible markup.</p>
+        </article>
+        <article class="card">
+          <h3>Performance</h3>
+          <p>Optimized assets, lazy loading, and careful rendering for speed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal">
+      <div class="section-head">
+        <h2>Featured Projects</h2>
+        <a class="link-more" href="projects.html">View all</a>
+      </div>
+
+      <div class="projects-grid">
+        <a class="project-card" href="project1.html">
+          <img src="images/project1-thumb.jpg" alt="Project one screenshot" />
+          <div class="project-info"><h3>Project One</h3><p>Landing page with form and animations.</p></div>
+        </a>
+
+        <a class="project-card" href="project2.html">
+          <img src="images/project2-thumb.jpg" alt="Project two screenshot" />
+          <div class="project-info"><h3>Project Two</h3><p>Dashboard UI with charts and filters.</p></div>
+        </a>
+
+        <a class="project-card" href="project3.html">
+          <img src="images/project3-thumb.jpg" alt="Project three screenshot" />
+          <div class="project-info"><h3>Project Three</h3><p>Product gallery & cart flow.</p></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Cynthia Ketienyei — Built with care.</p>
+      <div class="social">
+        <a href="#" target="_blank">GitHub</a>
+        <a href="#" target="_blank">LinkedIn</a>
+        <a href="cynthiachptoo@gmail">Email</a>
+      </div>
+    </div>
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
