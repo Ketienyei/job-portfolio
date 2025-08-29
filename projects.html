@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project Three — Your Name</title>
+  <title>Projects — Your Name</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,28 +21,31 @@
     </nav>
   </header>
 
-  <main class="section narrow project-three">
-  <h1>Project Three</h1>
-  <img class="project-hero" src="images/project3.jpg" alt="Project Three screenshot" />
-  
-  <p><strong>Stack:</strong> HTML, CSS, JavaScript</p>
-  <p>
-    Case study: A responsive **landing page** built with HTML, CSS, and vanilla JavaScript.  
-    The challenge was to design a modern product homepage that adapts to different devices.  
-    My approach was to use **flexbox & grid** for layout, and smooth **scroll animations**  
-    for interactivity. The result is a clean, minimal landing page that improves user engagement.
-  </p>
-  
-  <div class="links-row">
-    <a class="btn primary" href="#" target="_blank" rel="noopener">View Code</a>
-    <a class="btn outline" href="#" target="_blank" rel="noopener">Live Demo</a>
-  </div>
-</main>
-
+  <main class="section narrow">
+    <h1>Projects</h1>
+    <div class="projects-grid">
+      <a class="project-card" href="project1.html">
+        <img src="images/project1-thumb.jpg" alt="Project 1" />
+        <div class="project-info"><h3>Project One</h3><p>Landing page with form and animations.</p></div>
+      </a>
+      <a class="project-card" href="project2.html">
+        <img src="images/project2-thumb.jpg" alt="Project 2" />
+        <div class="project-info"><h3>Project Two</h3><p>Dashboard UI with charts.</p></div>
+      </a>
+      <a class="project-card" href="project3.html">
+        <img src="images/project3-thumb.jpg" alt="Project 3" />
+        <div class="project-info"><h3>Project Three</h3><p>eCommerce gallery and cart flow.</p></div>
+      </a>
+       <div class="projects-footer">
+  <a href="projects.html" class="btn-view-projects">View More Projects</a>
+</div>
+    </div>
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Your Name</p>
+      <div class="social"><a href="#">GitHub</a> <a href="#">LinkedIn</a></div>
     </div>
     <button id="backToTop" class="back-to-top">↑</button>
   </footer>

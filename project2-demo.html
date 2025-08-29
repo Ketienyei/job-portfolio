@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project Two Demo — Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #f5f9ff, #eef6ff);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      flex: 1;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #222;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 18px;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #0056b3;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s;
+      cursor: pointer;
+      border: 3px solid transparent;
+    }
+
+    .card h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Different colors for numbers */
+    .card.users p { color: #007bff; }
+    .card.sales p { color: #28a745; }
+    .card.orders p { color: #fd7e14; }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Active state highlight */
+    .card.active {
+      border: 3px solid currentColor;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+    .card.users.active { color: #007bff; }
+    .card.sales.active { color: #28a745; }
+    .card.orders.active { color: #fd7e14; }
+
+    .chart-card {
+      margin-top: 30px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .chart-card h3 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Back button -->
+    <a href="projects.html" class="back-btn">← Back to Projects</a>
+
+    <h1>Dashboard UI</h1>
+    
+    <div class="dashboard">
+      <div class="card users active" data-label="Users Growth" data-color="#007bff" data-values="[200,350,500,800,1200,1600]">
+        <h3>Users</h3>
+        <p>1,245</p>
+      </div>
+      <div class="card sales" data-label="Sales Growth" data-color="#28a745" data-values="[500,750,1200,2000,3000,4500]">
+        <h3>Sales</h3>
+        <p>$12,480</p>
+      </div>
+      <div class="card orders" data-label="Orders Growth" data-color="#fd7e14" data-values="[100,200,400,600,900,1500]">
+        <h3>New Orders</h3>
+        <p>342</p>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3 id="chartTitle">Users Growth</h3>
+      <canvas id="growthChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Project Two Demo | Designed by Cynthia Ketienyei</p>
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('growthChart').getContext('2d');
+
+    // Initial chart
+    let chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [{
+          label: "Users Growth",
+          data: [200, 350, 500, 800, 1200, 1600],
+          borderColor: "#007bff",
+          backgroundColor: "rgba(0, 123, 255, 0.15)",
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true, labels: { color: "#333" } }
+        },
+        scales: {
+          x: { ticks: { color: "#333" } },
+          y: { ticks: { color: "#333" } }
+        }
+      }
+    });
+
+    // Update chart when card is clicked
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        // Remove active class from all
+        cards.forEach(c => c.classList.remove("active"));
+
+        // Add active to clicked
+        card.classList.add("active");
+
+        const label = card.dataset.label;
+        const color = card.dataset.color;
+        const values = JSON.parse(card.dataset.values);
+
+        chart.data.datasets[0].label = label;
+        chart.data.datasets[0].data = values;
+        chart.data.datasets[0].borderColor = color;
+        chart.data.datasets[0].backgroundColor = color + "33"; // transparent fill
+        chart.update();
+
+        document.getElementById("chartTitle").innerText = label;
+      });
+    });
+    
+  </script>
+</body>
+</html>
