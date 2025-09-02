@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Landing Page Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="landing-hero">
+    <div class="hero-content">
+      <h1>Welcome to <span class="accent">My Landing Page</span></h1>
+      <p>This is a demo project showcasing a modern responsive design with glowing accents.</p>
+      <a href="#features" class="btn primary">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="landing-features">
+    <h2>Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i data-lucide="monitor" class="feature-icon"></i>
+        <h3>🚀 Responsive Design</h3>
+        <p>Optimized for speed and performance across all devices.</p>
+      </div>
+      <div class="feature-card">
+        <i data-lucide="bar-chart-3" class="feature-icon"></i>
+        <h3>🎨 Stylish</h3>
+        <p>Modern UI with glowing blue highlights and smooth animations.</p>
+      </div>
+      <div class="feature-card">
+        <i data-lucide="zap" class="feature-icon"></i>
+        <h3>⚡ Responsive</h3>
+        <p>Looks amazing on desktop, tablet, and mobile screens.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call To Action -->
+  <section class="landing-cta">
+    <h2>Ready to Explore?</h2>
+    <a href="index.html" class="btn outline">Back to Portfolio</a>
+  </section>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Cynthia Ketienyei — Built with care.</p>
+      <div class="social">
+        <a href="#" target="_blank">GitHub</a>
+        <a href="#" target="_blank">LinkedIn</a>
+        <a href="cynthiachptoo@gmail">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    lucide.createIcons();
+  });
+</script>
+</body>
+</html>

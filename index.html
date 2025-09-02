@@ -1,12 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
+  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ketienyei — Frontend Developer</title>
   <meta name="description" content="Portfolio of Your Name — Frontend developer. Modern, responsive, accessible.">
   <link rel="stylesheet" href="style.css">
 </head>
+
+ <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
 <body>
   <header class="site-header">
     <nav class="nav container">
@@ -26,75 +32,110 @@
     <section class="hero section container">
       <img class="hero-photo" src="images/profile.jpg.webp" alt="Profile photo (replace)" />
       <div class="hero-content">
-        <h1>Hi — I'm <span class="accent">Cynthia Ketienyei</span></h1>
-        <p class="lead">Frontend developer focused on building accessible, fast and modern web applications.</p>
+        <h1>Hi I'm <span class="accent">Cynthia Ketienyei</span></h1>
+        <p class="lead">Frontend developer.</p>
         <div class="cta">
-          <a class="btn primary" href="files/cv.pdf" download>📄 Download CV</a>
+          <a class="btn primary" href="files/Cynthia_Ketienyei_CV (1).pdf" download>📄 Download CV</a>
           <a class="btn outline" href="contact.html">💼 Hire me</a>
+
         </div>
-        <ul class="skills-list">
-          <li>HTML • CSS • JavaScript</li>
-          <li>React • Responsive Design</li>
-          <li>Accessibility • Performance</li>
-        </ul>
+        
       </div>
     </section>
 
     <section class="section container cards reveal">
-      <h2>What I do</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Responsive UI</h3>
-          <p>Build pixel-perfect, responsive interfaces that work on any device.</p>
-        </article>
-        <article class="card">
-          <h3>Interactive Apps</h3>
-          <p>Interactive user interfaces with clean state and accessible markup.</p>
-        </article>
-        <article class="card">
-          <h3>Performance</h3>
-          <p>Optimized assets, lazy loading, and careful rendering for speed.</p>
-        </article>
-      </div>
-    </section>
+      <h2>What I Do</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>🌐 Responsive Web Development</h3>
+      <p>
+        I build fast, modern, and responsive websites using HTML, CSS, JavaScript, and React. 
+        My focus is on performance, accessibility, and pixel-perfect design.
+      </p>
+    </div>
 
-    <section class="section container reveal">
+    <div class="service-card">
+      <h3>🎨 UI/UX Design</h3>
+      <p>
+        I design clean, user-friendly, and visually appealing interfaces using Figma and Adobe XD. 
+        My goal is to create smooth user experiences across all devices.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>⚡ Frontend Optimization</h3>
+      <p>
+        With experience at Airtel Kenya, I optimize websites and apps for speed and 
+        scalability while ensuring cross-browser and mobile compatibility.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>🤝 Customer-Centric Approach</h3>
+      <p>
+        My background in customer service enables me to understand client needs better 
+        and translate them into digital solutions that deliver value.
+      </p>
+    </div>
+  </div>
+    </section>
+   <main>
+    <section class="section container">
       <div class="section-head">
         <h2>Featured Projects</h2>
         <a class="link-more" href="projects.html">View all</a>
       </div>
 
       <div class="projects-grid">
-        <a class="project-card" href="project1.html">
-          <img src="images/project1-thumb.jpg" alt="Project one screenshot" />
-          <div class="project-info"><h3>Project One</h3><p>Landing page with form and animations.</p></div>
+        <!-- Project One -->
+        <a class="project-card reveal" href="project1.html">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Project one screenshot" />
+          <div class="project-info">
+            <h3>Project One</h3>
+            <p>Landing page with form and animations.</p>
+          </div>
         </a>
 
-        <a class="project-card" href="project2.html">
-          <img src="images/project2-thumb.jpg" alt="Project two screenshot" />
-          <div class="project-info"><h3>Project Two</h3><p>Dashboard UI with charts and filters.</p></div>
+        <!-- Project Two -->
+        <a class="project-card reveal" href="project2.html">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296" alt="Project two screenshot" />
+          <div class="project-info">
+            <h3>Project Two</h3>
+            <p>Dashboard UI with charts and filters.</p>
+          </div>
         </a>
 
-        <a class="project-card" href="project3.html">
-          <img src="images/project3-thumb.jpg" alt="Project three screenshot" />
-          <div class="project-info"><h3>Project Three</h3><p>Product gallery & cart flow.</p></div>
+        <!-- Project Three -->
+        <a class="project-card reveal" href="project3.html">
+          <img src="https://images.unsplash.com/photo-1607083206968-13611e1bb9f3" alt="Project three screenshot" />
+          <div class="project-info">
+            <h3>Project Three</h3>
+            <p>Product gallery & cart flow.</p>
+          </div>
         </a>
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
+  <section class="landing-cta">
+    <a href="index.html" class="btn outline">Back to Portfolio</a>
+  </section>
+<footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Cynthia Ketienyei — Built with care.</p>
       <div class="social">
         <a href="#" target="_blank">GitHub</a>
         <a href="#" target="_blank">LinkedIn</a>
-        <a href="cynthiachptoo@gmail">Email</a>
+        <a href="mailto:cynthiachptoo@gmail.com">Email Me</a>
       </div>
     </div>
-    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
   </footer>
 
   <script src="script.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    lucide.createIcons();
+  });
+</script>
 </body>
 </html>
