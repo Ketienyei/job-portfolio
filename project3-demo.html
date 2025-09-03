@@ -1,171 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project 3 Demo - eCommerce Gallery</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project 3 Demo — eCommerce Gallery</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 0;
+    :root{
+      --brand:#4a90e2;
+      --brand-dark:#357abd;
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --text:#222;
+      --muted:#6b7280;
     }
-
-    header {
-      background: #4a90e2;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+      background:var(--bg); color:var(--text);
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 30px;
+    .container{max-width:1000px;margin:0 auto;padding:24px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px; background:var(--brand); color:#fff;
     }
-
-    .product {
-      background: #fff;
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+    .topbar a{
+      color:#fff; text-decoration:none; font-weight:600;
+      border:2px solid rgba(255,255,255,.35); padding:6px 10px; border-radius:8px;
     }
+    .topbar a:hover{background:rgba(255,255,255,.12)}
+    h1{margin:0; font-size:1.2rem; letter-spacing:.2px}
 
-    .product:hover {
-      transform: translateY(-5px);
+    .gallery{
+      display:grid; gap:20px;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      margin-top:22px;
     }
-
-    .product img {
-      max-width: 100%;
-      border-radius: 8px;
+    .product{
+      background:var(--card); border-radius:14px; padding:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      transition:transform .2s ease, box-shadow .2s ease;
+      display:flex; flex-direction:column; gap:10px;
     }
-
-    .product h3 {
-      margin: 10px 0;
-      font-size: 18px;
-      color: #333;
+    .product:hover{transform:translateY(-4px); box-shadow:0 10px 24px rgba(0,0,0,.09)}
+    .product img{width:100%; height:160px; object-fit:cover; border-radius:10px}
+    .product h3{margin:4px 0 0; font-size:1rem}
+    .price{color:var(--brand); font-weight:700}
+    .btn{
+      display:inline-block; border:0; border-radius:10px; padding:10px 14px;
+      background:var(--brand); color:#fff; font-weight:600; cursor:pointer;
+      transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
     }
+    .btn:hover{background:var(--brand-dark); transform:translateY(-2px); box-shadow:0 8px 16px rgba(74,144,226,.35)}
+    .btn.secondary{background:#e5eefc; color:#174ea6}
+    .btn.secondary:hover{background:#d6e4fb}
 
-    .product p {
-      color: #666;
+    .layout{
+      display:grid; gap:24px; margin-top:24px;
+      grid-template-columns:2fr 1fr;
     }
+    @media (max-width:900px){ .layout{grid-template-columns:1fr} }
 
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background: #4a90e2;
-      color: white;
-      transition: background 0.3s;
+    .panel{
+      background:var(--card); border-radius:14px; padding:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
     }
-
-    .btn:hover {
-      background: #357ABD;
+    .panel h2{margin:0 0 12px}
+    .cart-items{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
+    .cart-items li{
+      display:grid; grid-template-columns:1fr auto auto; gap:10px; align-items:center;
+      padding:10px 12px; border:1px solid #eef2f7; border-radius:10px;
+      background:#fafcff;
     }
-
-    .cart {
-      background: #fff;
-      padding: 20px;
-      margin: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    .cart-items .remove{
+      border:0; background:#ffe8e8; color:#b00020; border-radius:8px; padding:6px 10px; cursor:pointer;
     }
-
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
+    .cart-summary{display:flex; justify-content:space-between; align-items:center; margin-top:12px; font-weight:700}
+    footer{
+      text-align:center; color:var(--muted); padding:24px 12px; margin-top:20px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🛍 Project 3 Demo - eCommerce Gallery</h1>
+  <header class="topbar">
+    <h1>🛍 Project 3 Demo — eCommerce Gallery</h1>
+    <a href="projects.html">← Back to Projects</a>
   </header>
 
-  <main>
-    <section class="gallery">
-      <div class="product">
-        <img src="https://via.placeholder.com/250x180" alt="Product 1">
-        <h3>Modern Sneakers</h3>
-        <p>$49.99</p>
-        <button class="btn" onclick="addToCart('Modern Sneakers', 49.99)">Add to Cart</button>
-      </div>
+  <main class="container">
+    <div class="layout">
+      <!-- Products -->
+      <section class="panel">
+        <h2>Products</h2>
+        <div class="gallery" id="gallery">
+          <article class="product">
+            <img src="https://picsum.photos/seed/sneaker/480/320" alt="Modern Sneakers">
+            <h3>Modern Sneakers</h3>
+            <div class="price" aria-label="Price">$49.99</div>
+            <button class="btn" data-product="Modern Sneakers" data-price="49.99">Add to Cart</button>
+          </article>
+          <article class="product">
+            <img src="https://picsum.photos/seed/backpack/480/320" alt="Classic Backpack">
+            <h3>Classic Backpack</h3>
+            <div class="price" aria-label="Price">$34.99</div>
+            <button class="btn" data-product="Classic Backpack" data-price="34.99">Add to Cart</button>
+          </article>
+          <article class="product">
+            <img src="https://picsum.photos/seed/watch/480/320" alt="Smart Watch">
+            <h3>Smart Watch</h3>
+            <div class="price" aria-label="Price">$99.99</div>
+            <button class="btn" data-product="Smart Watch" data-price="99.99">Add to Cart</button>
+          </article>
+          <article class="product">
+            <img src="https://picsum.photos/seed/headphones/480/320" alt="Wireless Headphones">
+            <h3>Wireless Headphones</h3>
+            <div class="price" aria-label="Price">$59.99</div>
+            <button class="btn" data-product="Wireless Headphones" data-price="59.99">Add to Cart</button>
+          </article>
+        </div>
+      </section>
 
-      <div class="product">
-        <img src="https://via.placeholder.com/250x180" alt="Product 2">
-        <h3>Classic Backpack</h3>
-        <p>$34.99</p>
-        <button class="btn" onclick="addToCart('Classic Backpack', 34.99)">Add to Cart</button>
-      </div>
-
-      <div class="product">
-        <img src="https://via.placeholder.com/250x180" alt="Product 3">
-        <h3>Smart Watch</h3>
-        <p>$99.99</p>
-        <button class="btn" onclick="addToCart('Smart Watch', 99.99)">Add to Cart</button>
-      </div>
-    </section>
-
-    <section class="cart">
-      <h2>🛒 Shopping Cart</h2>
-      <ul id="cart-list"></ul>
-      <p><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
-    </section>
+      <!-- Cart -->
+      <aside class="panel" aria-live="polite">
+        <h2>Your Cart</h2>
+        <ul id="cart-list" class="cart-items"></ul>
+        <div class="cart-summary">
+          <span>Total</span>
+          <span>$<span id="cart-total">0.00</span></span>
+        </div>
+        <button id="checkout" class="btn secondary" style="margin-top:12px">Checkout</button>
+      </aside>
+    </div>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Your Name — Project 3 Demo</p>
+    © <span id="year"></span> Project 3 Demo — Designed by You
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    let cart = [];
-    function addToCart(product, price) {
+    // Cart state
+    const cart = [];
+    const listEl = document.getElementById('cart-list');
+    const totalEl = document.getElementById('cart-total');
+    const gallery = document.getElementById('gallery');
+
+    // Add to cart (event delegation)
+    gallery.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-product]');
+      if (!btn) return;
+      const product = btn.dataset.product;
+      const price = parseFloat(btn.dataset.price);
+      if (Number.isNaN(price)) return; // safety
       cart.push({ product, price });
-      updateCart();
-    }
+      renderCart();
+    });
 
-    function updateCart() {
-      const cartList = document.getElementById("cart-list");
-      const cartTotal = document.getElementById("cart-total");
+    // Remove item
+    listEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('button.remove');
+      if (!btn) return;
+      const idx = parseInt(btn.dataset.index, 10);
+      if (!Number.isNaN(idx)) {
+        cart.splice(idx, 1);
+        renderCart();
+      }
+    });
 
-      cartList.innerHTML = "";
+    function renderCart() {
+      listEl.innerHTML = '';
       let total = 0;
-
-      cart.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `${item.product} - $${item.price.toFixed(2)}`;
-        cartList.appendChild(li);
-        total += item.price;
+      cart.forEach(({ product, price }, i) => {
+        total += price;
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${product}</span>
+          <span>$${price.toFixed(2)}</span>
+          <button class="remove" data-index="${i}" aria-label="Remove ${product}">×</button>
+        `;
+        listEl.appendChild(li);
       });
-
-      cartTotal.textContent = total.toFixed(2);
+      totalEl.textContent = total.toFixed(2);
     }
+
+    // Demo "checkout"
+    document.getElementById('checkout').addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('Your cart is empty.');
+      } else {
+        alert('Thank you! (Demo checkout)');
+      }
+    });
   </script>
 </body>
 </html>
-<section class="landing-cta">
-    <a href="index.html" class="btn outline">Back to Portfolio</a>
-  </section>
-<footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Cynthia Ketienyei — Built with care.</p>
-      <div class="social">
-        <a href="#" target="_blank">GitHub</a>
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="cynthiachptoo@gmail">Email</a>
-      </div>
-    </div>
-  </footer>
