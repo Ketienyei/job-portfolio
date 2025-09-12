@@ -1,55 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Projects — Your Name</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav container">
-      <a class="logo" href="index.html">Your<span>Dev</span></a>
-      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
-      <ul id="nav-links" class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <div class="logo">MyPortfolio</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-  <main class="section narrow">
-    <h1>Projects</h1>
-    <div class="projects-grid">
-      <a class="project-card" href="project1.html">
-        <img src="images/project1-thumb.jpg" alt="Project 1" />
-        <div class="project-info"><h3>Project One</h3><p>Landing page with form and animations.</p></div>
-      </a>
-      <a class="project-card" href="project2.html">
-        <img src="images/project2-thumb.jpg" alt="Project 2" />
-        <div class="project-info"><h3>Project Two</h3><p>Dashboard UI with charts.</p></div>
-      </a>
-      <a class="project-card" href="project3.html">
-        <img src="images/project3-thumb.jpg" alt="Project 3" />
-        <div class="project-info"><h3>Project Three</h3><p>eCommerce gallery and cart flow.</p></div>
-      </a>
-       <div class="projects-footer">
-  <a href="projects.html" class="btn-view-projects">View More Projects</a>
-</div>
+  <section class="projects">
+    <h1>My Projects</h1>
+    <div class="project-card">
+      <h2>Project 1</h2>
+      <p>A cool web project built with HTML, CSS, and JS.</p>
+      <a href="#">View Project</a>
     </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Your Name</p>
-      <div class="social"><a href="#">GitHub</a> <a href="#">LinkedIn</a></div>
+    <div class="project-card">
+      <h2>Project 2</h2>
+      <p>Another awesome project that solves real-world problems.</p>
+      <a href="#">View Project</a>
     </div>
-    <button id="backToTop" class="back-to-top">↑</button>
-  </footer>
+  </section>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
